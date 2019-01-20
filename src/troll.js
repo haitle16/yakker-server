@@ -58,7 +58,7 @@ class TrollJohn extends React.Component {
             <li key={idx}>
               {record}
               <button onClick={() => this.handleDelete(idx)}>
-                Delete {idx}
+                Delete
               </button>
               {timestamp("HH:mm:ss")}
             </li>
