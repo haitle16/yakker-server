@@ -10,31 +10,24 @@
 
 
 ### Modules
-#### `modulename.js`
-##### Exported Values and Methods
+#### `server.js`
+##### Handle socket.io on / emit calls
 
-###### `foo(thing) -> string`
-Usage Notes or examples
+###### `text`
+- push the values into the history array.
+- emit the imcoming method and send it with the payload
 
-###### `bar(array) -> array`
-Usage Notes or examples
+###### `delete`
+- emit the history method with the history array saved in server.
+
+###### `history`
+- update the history array and emit back to history with the new updated history.
 
 ### Setup
 #### `.env` requirements
 * `PORT` - Port Number
 * `MONGODB_URI` - URL to the running mongo instance/db
 
-#### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
-
-#### Tests
-* How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
 
 #### UML
 Link to an image of the UML for your application and response to events
