@@ -7,9 +7,7 @@
 
 ### Links and Resources
 * [Client CodeSandbox](https://codesandbox.io/s/v054jk7jj0)
-* [travis](http://xyz.com)
-* [back-end](http://xyz.com)
-* [front-end](http://xyz.com)
+
 
 ### Modules
 #### `modulename.js`

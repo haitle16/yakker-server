@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 
 const io = require('socket.io')(PORT);
 
-const history = [];
+let history = [];
 
 io.on('connection', (socket) =>{
   console.log('Client Connected', socket.id)
@@ -18,5 +18,11 @@ io.on('connection', (socket) =>{
   socket.on('history', ()=>{
     io.sockets.emit('history', history);
   });
+
+  socket.on('delete', (payload)=>{
+    console.log('new History', payload);
+    history = payload;
+    io.sockets.emit('history', history);
+  })
 
 })
