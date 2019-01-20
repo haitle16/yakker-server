@@ -1,5 +1,6 @@
 import React from "react";
 import io from "socket.io-client";
+import timestamp from "time-stamp";
 
 const url = "http://localhost:3000";
 // const url = "https://js-401-socket-io-server.herokuapp.com";
@@ -36,22 +37,30 @@ class TrollJohn extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     socket.emit("text", this.state.typedInput);
-    // history.push(this.state.typedInput);
   };
 
   handleNewWords = event => {
     this.setState({ typedInput: event.target.value });
   };
 
+  handleDelete = idx => {
+    this.state.wordsHistory.splice(idx, 1);
+    console.log(this.state.wordsHistory);
+    socket.emit("delete", this.state.wordsHistory);
+  };
+
   render() {
     return (
       <>
-        <h2>{this.state.words}</h2>
+        <h2>Latest Message: {this.state.words}</h2>
         <ul>
           {this.state.wordsHistory.map((record, idx) => (
             <li key={idx}>
               {record}
-              <button>Delete</button>
+              <button onClick={() => this.handleDelete(idx)}>
+                Delete {idx}
+              </button>
+              {timestamp("HH:mm:ss")}
             </li>
           ))}
         </ul>
